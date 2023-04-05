@@ -2,7 +2,7 @@
   <img
   src="Contacts API ERD.png"
   alt="Contacts API ERD">
-  <figcaption>Contacts API ERD</figcaption>
+  <figcaption>The Entity Relational Diagram for the Contacts API</figcaption>
 </figure>
 
 ### iLetters - Contacts API
