@@ -1,3 +1,10 @@
+<figure>
+  <img
+  src="Contacts API ERD.png"
+  alt="Contacts API ERD">
+  <figcaption>Contacts API ERD</figcaption>
+</figure>
+
 ### iLetters - Contacts API
 
 This microservice is responsible for storing as well as managing the contact details of the learners parents.
