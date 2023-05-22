@@ -16,7 +16,8 @@ class Contact extends Model
         'cell_phone',
         'whatsapp',
         'email',
-        'preffered_contact_method'
+        'preffered_contact_method',
+        'learner_id'
     ];
 
     protected $guarded = [];

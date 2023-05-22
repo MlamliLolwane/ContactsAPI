@@ -24,6 +24,8 @@ Route::get('/contacts/index', [ContactController::class, 'index']);
 
 Route::get('/contacts/show/{id}', [ContactController::class, 'show']);
 
+Route::get('/contacts/last_contact', [ContactController::class, 'last_contact']);
+
 Route::post('/contacts/store', [ContactController::class, 'store']);
 
 Route::patch('/contacts/update/{contact_id}', [ContactController::class, 'update']);

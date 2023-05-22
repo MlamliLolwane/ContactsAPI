@@ -35,34 +35,35 @@ class GetContactTest extends TestCase
             'cell_phone' => '0813435219',
             'whatsapp' => '0813435219',
             'email' => 'mrlolwane96@gmail.com',
-            'preffered_contact_method' => 'email'
+            'preffered_contact_method' => 'email',
+            'learner_id' => 11
         ]);
 
         //Fetch the contact with the specified id
         $contact = $this->getJson('/api/contacts/show/11');
+
+        //dd($contact);
             
         //Assert that the created contact matches the one fetched from the database
-        $contact->assertJson([
+        $contact->assertJson([[
             'cell_phone' => '0813435219',
             'whatsapp' => '0813435219',
             'email' => 'mrlolwane96@gmail.com',
-            'preffered_contact_method' => 'email'
-        ]);
+            'preffered_contact_method' => 'email',
+            'learner_id' => 11
+        ]]);
     }
 
     //Test that no contact is returned when an invalid id is provided
     public function test_that_invalid_id_provided_results_in_not_found()
     {
+        $this->withoutExceptionHandling();
          //Store 10 contacts on the database
          Contact::factory(10)->create();
 
          //Fetch a contact with an invalid id
         $contact = $this->getJson('/api/contacts/show/11');
-        //dd($contact);
+
         $contact->assertStatus(404);
     }   
-
-    //Test that contacts can be retrieved by grade. This will have to be done on the API aggregator.
-
-    //Test that contacts can be retrieved by class. This will have to be done on the API aggregator.
 }

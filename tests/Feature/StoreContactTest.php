@@ -17,7 +17,8 @@ class StoreContactTest extends TestCase
         $response = $this->postJson('/api/contacts/store', [
             'cell_phone' => '0813435219',
             'whatsapp' => '0813435219',
-            'preffered_contact_method' => 'whatsapp'
+            'preffered_contact_method' => 'whatsapp',
+            'learner_id' => 1
         ]);
         
         //Assert that the record was stored in the database
@@ -30,7 +31,8 @@ class StoreContactTest extends TestCase
         $response = $this->postJson('/api/contacts/store', [
             'cell_phone' => '0813435219',
             'email' => 'testmail@gmail.com',
-            'preffered_contact_method' => 'email'
+            'preffered_contact_method' => 'email',
+            'learner_id' => 1
         ]);
         
         //Assert that the record was stored in the database
@@ -44,7 +46,8 @@ class StoreContactTest extends TestCase
             'cell_phone' => '0813435219',
             'whatsapp' => '0813435219',
             'email' => 'testmail@gmail.com',
-            'preffered_contact_method' => 'both'
+            'preffered_contact_method' => 'both',
+            'learner_id' => 1
         ]);
         
         //Assert that the record was stored in the database
@@ -56,7 +59,8 @@ class StoreContactTest extends TestCase
         //Send a request with both whatsapp and email missing
         $response = $this->postJson('/api/contacts/store', [
             'cell_phone' => '0813435219',
-            'preffered_contact_method' => 'whatsapp'
+            'preffered_contact_method' => 'whatsapp',
+            'learner_id' => 1
         ]);
         
         //Assert that the record failed to be stored in the database as validation did not pass
@@ -69,7 +73,8 @@ class StoreContactTest extends TestCase
         $response = $this->postJson('/api/contacts/store', [
             'cell_phone' => '0813435219',
             'email' => 'testmail@gmail.com',
-            'preffered_contact_method' => 'whatsapp'
+            'preffered_contact_method' => 'whatsapp',
+            'learner_id' => 1
         ]);
 
         //Assert that the request is invalid and whatsapp contact is required.
@@ -82,7 +87,8 @@ class StoreContactTest extends TestCase
         $response = $this->postJson('/api/contacts/store', [
             'cell_phone' => '0813435219',
             'whatsapp' => '0813435219',
-            'preffered_contact_method' => 'email'
+            'preffered_contact_method' => 'email',
+            'learner_id' => 1
         ]);
         
         //Assert that the request is invalid and an email address is required

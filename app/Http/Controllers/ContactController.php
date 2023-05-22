@@ -36,7 +36,8 @@ class ContactController extends Controller
             'cell_phone' => $request->cell_phone,
             'whatsapp' => $request->whatsapp,
             'email' => $request->email,
-            'preffered_contact_method' => $request->preffered_contact_method
+            'preffered_contact_method' => $request->preffered_contact_method,
+            'learner_id' => $request->learner_id
         ]);
 
         return response()->json($contact, Response::HTTP_CREATED);
@@ -50,10 +51,17 @@ class ContactController extends Controller
      */
     public function show($contact_id)
     {
-        //$contact = Contact::where('id', $contact_id)->get();
-        $contact = Contact::findOrFail($contact_id);
+        $contact = Contact::where('id', $contact_id)->get();
+        //$contact = Contact::findOrFail($contact_id);
 
         return response()->json($contact);
+    }
+
+    public function last_contact()
+    {
+        $contact = Contact::orderBy('id', 'desc')->first();
+
+        return response()->json(['data' => $contact], Response::HTTP_OK);
     }
 
     /**

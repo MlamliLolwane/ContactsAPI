@@ -31,7 +31,8 @@ class UpdateContactRequest extends FormRequest
 
             'email' => 'string|required_without:whatsapp|required_if:preffered_contact_method,=,"email"|required_if:preffered_contact_method,=,"both"',
 
-            'preffered_contact_method' => 'required:in:whatsapp,email,both'
+            'preffered_contact_method' => 'required:in:whatsapp,email,both',
+            'learner_id' => 'integer'
         ];
     }
 }

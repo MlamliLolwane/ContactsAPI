@@ -13,11 +13,14 @@ class ContactFactory extends Factory
      */
     public function definition()
     {
+        static $increment = 1;
+        
         return [
             'cell_phone' => $this->faker->phoneNumber(),
             'whatsapp' => $this->faker->phoneNumber(),
             'email' => $this->faker->unique()->safeEmail(),
-            'preffered_contact_method' => 'both'
+            'preffered_contact_method' => 'both',
+            'learner_id' => $increment++
         ];
     }
 }

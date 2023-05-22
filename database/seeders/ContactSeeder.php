@@ -15,6 +15,6 @@ class ContactSeeder extends Seeder
     public function run()
     {
         //Create 60 contact information from the factory
-        Contact::factory()->count(25000)->create();
+        Contact::factory()->count(1000)->create();
     }
 }

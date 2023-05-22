@@ -19,6 +19,7 @@ class CreateContactsTable extends Migration
             $table->text('whatsapp')->nullable();
             $table->text('email')->nullable();
             $table->string('preffered_contact_method')->comment('whatsapp, email, both');
+            $table->integer('learner_id');
             $table->timestamps();
             $table->softDeletes();
         });
